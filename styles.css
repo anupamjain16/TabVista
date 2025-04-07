@@ -1270,7 +1270,7 @@ body {
     bottom: 0;
     left: 0;
     right: 0;
-    padding: 10px;
+    padding: 10px 0;
     background: var(--bg-secondary);
     backdrop-filter: blur(10px);
     z-index: 1000;
@@ -1283,18 +1283,23 @@ body {
 
 .footer-content {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+    width: 100%;
+    padding-right: 40px;  /* Added padding to move content right */
+}
+
+.credit-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
 }
 
 .footer p {
     color: var(--text-secondary);
     font-size: 0.9rem;
     margin: 0;
-    text-align: right;
+    white-space: nowrap;  /* Prevent text wrapping */
 }
 
 .footer a {
@@ -1305,12 +1310,6 @@ body {
 
 .footer a:hover {
     color: var(--accent-secondary);
-}
-
-.donation-links {
-    display: flex;
-    gap: 10px;
-    align-items: center;
 }
 
 .donate-btn {
@@ -1336,4 +1335,23 @@ body {
     .footer {
         display: none;
     }
+}
+
+[data-theme="dark"] .weather-section {
+    background: rgba(35, 35, 35, 0.95);
+    border: 1px solid rgba(192, 161, 100, 0.1);
+}
+
+[data-theme="dark"] .weather-item {
+    background: rgba(25, 25, 25, 0.95);
+    border: 1px solid rgba(192, 161, 100, 0.1);
+}
+
+[data-theme="dark"] .weather-item span {
+    color: var(--accent-primary);
+}
+
+[data-theme="dark"] .aqi {
+    background: rgba(25, 25, 25, 0.95);
+    border: 1px solid rgba(192, 161, 100, 0.1);
 } 
