@@ -530,7 +530,7 @@ body {
 .quote-section {
     text-align: center;
     position: absolute;
-    bottom: 0;
+    bottom: 60px;
     left: 0;
     padding: 1rem;
     width: 100%;
@@ -1262,4 +1262,78 @@ body {
 [data-theme="dark"] .developer-credit:hover {
     border-color: rgba(192, 161, 100, 0.3);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Footer Styles */
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 10px;
+    background: var(--bg-secondary);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    transition: opacity 0.3s;
+}
+
+.footer:hover {
+    opacity: 1;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin: 0;
+    text-align: right;
+}
+
+.footer a {
+    color: var(--accent-primary);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer a:hover {
+    color: var(--accent-secondary);
+}
+
+.donation-links {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.donate-btn {
+    opacity: 0.8;
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+.donate-btn:hover {
+    opacity: 1;
+    transform: translateY(-2px);
+}
+
+.bmc-btn {
+    height: 30px;
+}
+
+.kofi-btn {
+    height: 30px;
+}
+
+/* Hide footer when not needed */
+@media (max-height: 500px) {
+    .footer {
+        display: none;
+    }
 } 
