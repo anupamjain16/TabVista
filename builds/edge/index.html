@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TabVista</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <button class="theme-toggle" id="themeToggle">
+        <i class="fas fa-sun"></i>
+    </button>
+    <div class="container">
+        <div class="left-panel">
+            <div class="todo-section">
+                <h2>To-Do List</h2>
+                <div class="todo-input">
+                    <input type="text" id="todoInput" placeholder="Add a new task...">
+                    <button id="addTodo"><i class="fas fa-plus"></i></button>
+                </div>
+                <ul id="todoList"></ul>
+            </div>
+            
+            <div class="links-section">
+                <h2>Quick Links</h2>
+                <div class="links-categories">
+                    <!-- Search -->
+                    <div class="link-category">
+                        <h3>Search</h3>
+                        <div class="link-grid">
+                            <a href="https://www.google.com" class="link-item" target="_blank">
+                                <i class="fab fa-google"></i>
+                                <span>Google</span>
+                            </a>
+                            <a href="https://www.bing.com" class="link-item" target="_blank">
+                                <i class="fab fa-microsoft"></i>
+                                <span>Bing</span>
+                            </a>
+                            <a href="https://duckduckgo.com" class="link-item" target="_blank">
+                                <i class="fas fa-search"></i>
+                                <span>DuckDuckGo</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Development -->
+                    <div class="link-category">
+                        <h3>Development</h3>
+                        <div class="link-grid">
+                            <a href="https://github.com" class="link-item" target="_blank">
+                                <i class="fab fa-github"></i>
+                                <span>GitHub</span>
+                            </a>
+                            <a href="https://stackoverflow.com" class="link-item" target="_blank">
+                                <i class="fab fa-stack-overflow"></i>
+                                <span>Stack Overflow</span>
+                            </a>
+                            <a href="https://leetcode.com" class="link-item" target="_blank">
+                                <i class="fas fa-code"></i>
+                                <span>LeetCode</span>
+                            </a>
+                            <a href="https://www.figma.com" class="link-item" target="_blank">
+                                <i class="fab fa-figma"></i>
+                                <span>Figma</span>
+                            </a>
+                            <a href="https://codepen.io" class="link-item" target="_blank">
+                                <i class="fab fa-codepen"></i>
+                                <span>CodePen</span>
+                            </a>
+                            <a href="https://vercel.com" class="link-item" target="_blank">
+                                <i class="fas fa-cloud"></i>
+                                <span>Vercel</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- AI Tools -->
+                    <div class="link-category">
+                        <h3>AI Tools</h3>
+                        <div class="link-grid">
+                            <a href="https://chat.openai.com" class="link-item" target="_blank">
+                                <i class="fas fa-robot"></i>
+                                <span>ChatGPT</span>
+                            </a>
+                            <a href="https://bard.google.com" class="link-item" target="_blank">
+                                <i class="fas fa-brain"></i>
+                                <span>Bard</span>
+                            </a>
+                            <a href="https://www.midjourney.com" class="link-item" target="_blank">
+                                <i class="fas fa-image"></i>
+                                <span>Midjourney</span>
+                            </a>
+                            <a href="https://claude.ai" class="link-item" target="_blank">
+                                <i class="fas fa-lightbulb"></i>
+                                <span>Claude</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Productivity -->
+                    <div class="link-category">
+                        <h3>Productivity</h3>
+                        <div class="link-grid">
+                            <a href="https://www.notion.so" class="link-item" target="_blank">
+                                <i class="fas fa-book"></i>
+                                <span>Notion</span>
+                            </a>
+                            <a href="https://trello.com" class="link-item" target="_blank">
+                                <i class="fab fa-trello"></i>
+                                <span>Trello</span>
+                            </a>
+                            <a href="https://calendar.google.com" class="link-item" target="_blank">
+                                <i class="far fa-calendar"></i>
+                                <span>Calendar</span>
+                            </a>
+                            <a href="https://www.linkedin.com" class="link-item" target="_blank">
+                                <i class="fab fa-linkedin"></i>
+                                <span>LinkedIn</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Entertainment -->
+                    <div class="link-category">
+                        <h3>Entertainment</h3>
+                        <div class="link-grid">
+                            <a href="https://www.youtube.com" class="link-item" target="_blank">
+                                <i class="fab fa-youtube"></i>
+                                <span>YouTube</span>
+                            </a>
+                            <a href="https://www.netflix.com" class="link-item" target="_blank">
+                                <i class="fas fa-film"></i>
+                                <span>Netflix</span>
+                            </a>
+                            <a href="https://open.spotify.com" class="link-item" target="_blank">
+                                <i class="fab fa-spotify"></i>
+                                <span>Spotify</span>
+                            </a>
+                            <a href="https://www.primevideo.com" class="link-item" target="_blank">
+                                <i class="fab fa-amazon"></i>
+                                <span>Prime</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Learning -->
+                    <div class="link-category">
+                        <h3>Learning</h3>
+                        <div class="link-grid">
+                            <a href="https://www.udemy.com" class="link-item" target="_blank">
+                                <i class="fas fa-graduation-cap"></i>
+                                <span>Udemy</span>
+                            </a>
+                            <a href="https://www.coursera.org" class="link-item" target="_blank">
+                                <i class="fas fa-university"></i>
+                                <span>Coursera</span>
+                            </a>
+                            <a href="https://www.freecodecamp.org" class="link-item" target="_blank">
+                                <i class="fab fa-free-code-camp"></i>
+                                <span>freeCodeCamp</span>
+                            </a>
+                            <a href="https://www.w3schools.com" class="link-item" target="_blank">
+                                <i class="fas fa-code"></i>
+                                <span>W3Schools</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Tools -->
+                    <div class="link-category">
+                        <h3>Tools</h3>
+                        <div class="link-grid">
+                            <a href="https://www.canva.com" class="link-item" target="_blank">
+                                <i class="fas fa-palette"></i>
+                                <span>Canva</span>
+                            </a>
+                            <a href="https://translate.google.com" class="link-item" target="_blank">
+                                <i class="fas fa-language"></i>
+                                <span>Translate</span>
+                            </a>
+                            <a href="https://drive.google.com" class="link-item" target="_blank">
+                                <i class="fab fa-google-drive"></i>
+                                <span>Drive</span>
+                            </a>
+                            <a href="https://wetransfer.com" class="link-item" target="_blank">
+                                <i class="fas fa-file-upload"></i>
+                                <span>WeTransfer</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Tools & Utilities -->
+                    <div class="link-category">
+                        <h3>Tools & Utilities</h3>
+                        <div class="link-grid">
+                            <a href="https://www.google.com/maps" class="link-item">
+                                <i class="fas fa-map-marked-alt"></i>
+                                <span>Maps</span>
+                            </a>
+                            <a href="https://mail.google.com" class="link-item">
+                                <i class="fas fa-envelope"></i>
+                                <span>Gmail</span>
+                            </a>
+                            <a href="https://www.adobe.com/acrobat/online/pdf-reader.html" class="link-item">
+                                <i class="fas fa-file-pdf"></i>
+                                <span>PDF Reader</span>
+                            </a>
+                            <a href="https://www.autodraw.com" class="link-item">
+                                <i class="fas fa-paint-brush"></i>
+                                <span>AutoDraw</span>
+                            </a>
+                            <a href="https://screenapp.io" class="link-item">
+                                <i class="fas fa-video"></i>
+                                <span>Screen Recorder</span>
+                            </a>
+                            <a href="https://www.photopea.com" class="link-item">
+                                <i class="fas fa-image"></i>
+                                <span>Photopea</span>
+                            </a>
+                            <a href="https://translate.google.com" class="link-item">
+                                <i class="fas fa-language"></i>
+                                <span>Translate</span>
+                            </a>
+                            <a href="https://calendar.google.com" class="link-item">
+                                <i class="far fa-calendar"></i>
+                                <span>Calendar</span>
+                            </a>
+                            <a href="https://meet.google.com" class="link-item">
+                                <i class="fas fa-video"></i>
+                                <span>Meet</span>
+                            </a>
+                            <a href="https://www.remove.bg" class="link-item">
+                                <i class="fas fa-cut"></i>
+                                <span>Remove BG</span>
+                            </a>
+                            <a href="https://wetransfer.com" class="link-item">
+                                <i class="fas fa-file-upload"></i>
+                                <span>WeTransfer</span>
+                            </a>
+                            <a href="https://www.notion.so" class="link-item">
+                                <i class="fas fa-book"></i>
+                                <span>Notion</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Office Tools -->
+                    <div class="link-category">
+                        <h3>Office Tools</h3>
+                        <div class="link-grid">
+                            <a href="https://docs.google.com" class="link-item">
+                                <i class="fas fa-file-word"></i>
+                                <span>Docs</span>
+                            </a>
+                            <a href="https://sheets.google.com" class="link-item">
+                                <i class="fas fa-file-excel"></i>
+                                <span>Sheets</span>
+                            </a>
+                            <a href="https://slides.google.com" class="link-item">
+                                <i class="fas fa-file-powerpoint"></i>
+                                <span>Slides</span>
+                            </a>
+                            <a href="https://forms.google.com" class="link-item">
+                                <i class="fas fa-list-alt"></i>
+                                <span>Forms</span>
+                            </a>
+                            <a href="https://drive.google.com" class="link-item">
+                                <i class="fab fa-google-drive"></i>
+                                <span>Drive</span>
+                            </a>
+                            <a href="https://keep.google.com" class="link-item">
+                                <i class="fas fa-sticky-note"></i>
+                                <span>Keep</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Media Tools -->
+                    <div class="link-category">
+                        <h3>Media Tools</h3>
+                        <div class="link-grid">
+                            <a href="https://www.canva.com" class="link-item">
+                                <i class="fas fa-palette"></i>
+                                <span>Canva</span>
+                            </a>
+                            <a href="https://www.figma.com" class="link-item">
+                                <i class="fab fa-figma"></i>
+                                <span>Figma</span>
+                            </a>
+                            <a href="https://www.kapwing.com" class="link-item">
+                                <i class="fas fa-film"></i>
+                                <span>Kapwing</span>
+                            </a>
+                            <a href="https://www.soundtrap.com" class="link-item">
+                                <i class="fas fa-music"></i>
+                                <span>Soundtrap</span>
+                            </a>
+                            <a href="https://pixlr.com" class="link-item">
+                                <i class="fas fa-camera"></i>
+                                <span>Pixlr</span>
+                            </a>
+                            <a href="https://www.beautiful.ai" class="link-item">
+                                <i class="fas fa-presentation"></i>
+                                <span>Beautiful.ai</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="right-panel">
+            <div class="clock-section">
+                <div class="clock-container">
+                    <div class="clock">
+                        <div class="numbers">
+                            <div class="number" style="--rotation: 30deg" data-number="1"></div>
+                            <div class="number" style="--rotation: 60deg" data-number="2"></div>
+                            <div class="number" style="--rotation: 90deg" data-number="3"></div>
+                            <div class="number" style="--rotation: 120deg" data-number="4"></div>
+                            <div class="number" style="--rotation: 150deg" data-number="5"></div>
+                            <div class="number" style="--rotation: 180deg" data-number="6"></div>
+                            <div class="number" style="--rotation: 210deg" data-number="7"></div>
+                            <div class="number" style="--rotation: 240deg" data-number="8"></div>
+                            <div class="number" style="--rotation: 270deg" data-number="9"></div>
+                            <div class="number" style="--rotation: 300deg" data-number="10"></div>
+                            <div class="number" style="--rotation: 330deg" data-number="11"></div>
+                            <div class="number" style="--rotation: 0deg" data-number="12"></div>
+                        </div>
+                        <div class="outer-dial">
+                            <div class="dial-pattern"></div>
+                        </div>
+                        <div class="inner-dial">
+                            <div class="dial-pattern"></div>
+                        </div>
+                        <div class="hand hour-hand"></div>
+                        <div class="hand min-hand"></div>
+                        <div class="hand second-hand"></div>
+                        <div class="center-dot"></div>
+                    </div>
+                    <div class="alarm-controls">
+                        <div class="alarm-time">
+                            <input type="time" class="alarm-input" id="alarmTime">
+                        </div>
+                        <div class="alarm-buttons">
+                            <button class="alarm-btn" id="setAlarm">
+                                <i class="fas fa-bell"></i> Set Alarm
+                            </button>
+                            <button class="alarm-btn" id="clearAlarm">
+                                <i class="fas fa-bell-slash"></i> Clear
+                            </button>
+                        </div>
+                        <div class="alarm-status">
+                            <div class="date-number" id="dateNumber">06</div>
+                            <div class="day-display">APR SUN</div>
+                        </div>
+                    </div>
+                    <div class="weather-section">
+                        <div class="weather-info">
+                            <div class="temperature">
+                                <i class="fas fa-sun"></i>
+                                <span id="temp">24°C</span>
+                            </div>
+                            <div class="weather-details">
+                                <div class="weather-item">
+                                    Humidity <span id="humidity">65%</span>
+                                </div>
+                                <div class="weather-item">
+                                    Wind Speed <span id="wind">12 km/h</span>
+                                </div>
+                                <div class="weather-item">
+                                    Feels Like <span id="feels-like">26°C</span>
+                                </div>
+                            </div>
+                            <div class="aqi">
+                                <div class="aqi-label">Air Quality Index</div>
+                                <div class="aqi-value" id="aqi">45</div>
+                                <div class="aqi-status aqi-good" id="aqi-status">Good</div>
+                            </div>
+                        </div>
+                        <div class="weather-animation" id="weatherAnimation"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="main-content">
+                <div class="timers-container">
+                    <!-- Countdown Timer -->
+                    <div class="countdown-timer timer-section">
+                        <h3><i class="fas fa-hourglass-start"></i> Event Countdown</h3>
+                        <div class="timer-display">
+                            <span id="countdownDays">00</span>d 
+                            <span id="countdownHours">00</span>h 
+                            <span id="countdownMinutes">00</span>m 
+                            <span id="countdownSeconds">00</span>s
+                        </div>
+                        <div class="event-details">
+                            <input type="text" id="eventName" placeholder="Event name" class="timer-input">
+                            <input type="datetime-local" id="eventDateTime" class="timer-input">
+                        </div>
+                        <div class="timer-buttons">
+                            <button id="setCountdown" class="timer-btn">
+                                <i class="fas fa-play"></i> Set
+                            </button>
+                            <button id="clearCountdown" class="timer-btn" disabled>
+                                <i class="fas fa-times"></i> Clear
+                            </button>
+                        </div>
+                        <div id="eventStatus" class="timer-status"></div>
+                    </div>
+                </div>
+
+                <!-- Pomodoro Timer -->
+                <div class="pomodoro-timer timer-section">
+                    <h3><i class="fas fa-clock"></i> Pomodoro Timer</h3>
+                    <div class="timer-display">
+                        <span id="pomodoroMinutes">25</span>:<span id="pomodoroSeconds">00</span>
+                    </div>
+                    <div class="pomodoro-status">Work Time</div>
+                    <div class="timer-buttons">
+                        <button id="startPomodoro" class="timer-btn">
+                            <i class="fas fa-play"></i>
+                        </button>
+                        <button id="pausePomodoro" class="timer-btn" disabled>
+                            <i class="fas fa-pause"></i>
+                        </button>
+                        <button id="resetPomodoro" class="timer-btn">
+                            <i class="fas fa-redo"></i>
+                        </button>
+                    </div>
+                    <div class="pomodoro-settings">
+                        <div class="setting">
+                            <label>Work (min)</label>
+                            <input type="number" id="workDuration" value="25" min="1" max="60" class="timer-input">
+                        </div>
+                        <div class="setting">
+                            <label>Break (min)</label>
+                            <input type="number" id="breakDuration" value="5" min="1" max="30" class="timer-input">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="calendar-weather-container">
+                    <div class="calendar-section">
+                        <div class="calendar-header">
+                            <button id="prevMonth" class="month-nav"><i class="fas fa-chevron-left"></i></button>
+                            <div id="currentMonth"></div>
+                            <button id="nextMonth" class="month-nav"><i class="fas fa-chevron-right"></i></button>
+                        </div>
+                        <div class="weekdays">
+                            <div>Sun</div>
+                            <div>Mon</div>
+                            <div>Tue</div>
+                            <div>Wed</div>
+                            <div>Thu</div>
+                            <div>Fri</div>
+                            <div>Sat</div>
+                        </div>
+                        <div class="calendar-grid" id="calendarGrid"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="quote-section">
+        <p id="quote"></p>
+        <p id="author"></p>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div></div>
+            <div class="credit-container">
+                <p>Made with ❤️ by <a href="https://github.com/anupamjain16" target="_blank">Anupam Jain</a></p>
+                <a href="https://www.buymeacoffee.com/anupamjain" target="_blank" class="donate-btn">
+                    <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" class="bmc-btn">
+                </a>
+            </div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html> 

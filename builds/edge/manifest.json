@@ -1,0 +1,13 @@
+{
+    "manifest_version": 3,
+    "name": "TabVista",
+    "version": "1.0.0",
+    "description": "A beautiful and modern new tab dashboard with weather, clock, todo list, and organized quick links",
+    "permissions": [
+        "geolocation",
+        "storage"
+    ],
+    "chrome_url_overrides": {
+        "newtab": "index.html"
+    }
+} 
