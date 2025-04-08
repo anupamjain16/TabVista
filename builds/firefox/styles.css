@@ -95,6 +95,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Cinzel', serif;
+    outline: none !important;
 }
 
 body {
@@ -1036,6 +1037,7 @@ body {
     text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
     background: linear-gradient(to bottom, var(--accent-secondary), var(--accent-primary));
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
@@ -1354,4 +1356,129 @@ body {
 [data-theme="dark"] .aqi {
     background: rgba(25, 25, 25, 0.95);
     border: 1px solid rgba(192, 161, 100, 0.1);
+}
+
+/* Remove debugging outlines and green highlights */
+* {
+    outline: none !important;
+}
+
+a, button, input, div, section, article, nav, aside, main, header, footer {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+/* Specifically target any elements with green outline/background */
+*[style*="outline"]:not(.clock-container *):not(.clock *),
+*[style*="border"]:not(.clock-container *):not(.clock *),
+*[style*="background"]:not(.clock-container *):not(.clock *):not(.quote-section *):not(.weather-section *):not(.calendar-section *):not(.todo-section *):not(.links-section *) {
+    outline: none !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* Fix for green debug boxes */
+.link-category,
+.link-item,
+.quick-links a,
+.links-section a,
+.link-grid a,
+.left-panel a,
+.links-categories a {
+    outline: none !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* Restore proper borders */
+.link-item {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    padding: 0.6rem;
+    text-align: center;
+    color: #333;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+/* Emergency fix for green debug boxes - override everything */
+.link-category *,
+.links-section *,
+.link-grid *,
+[style*="outline-color"],
+[style*="border-color"],
+[style*="outline:"],
+[style*="border:"] {
+    outline: none !important;
+    outline-color: transparent !important;
+    border-color: rgba(139, 107, 47, 0.1) !important;
+}
+
+/* Fix for specific browsers */
+@-moz-document url-prefix() {
+    .link-item, 
+    .link-category, 
+    .links-section a {
+        outline: none !important;
+        border-color: rgba(139, 107, 47, 0.1) !important;
+    }
+}
+
+/* Chrome and Safari fix */
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    .link-item, 
+    .link-category, 
+    .links-section a {
+        outline: none !important;
+        border-color: rgba(139, 107, 47, 0.1) !important;
+    }
+}
+
+/* Remove our previous fixes for debug boxes */
+.link-item::before, 
+.link-item::after,
+.weather-section::before,
+.weather-section::after,
+.links-section *::before,
+.links-section *::after,
+div[style*="animation"]:not(.link-item):not(.temperature):not(.weather-item),
+div[style*="transition"]:not(.clock *):not(.clock-container *):not(.hand):not(.center-dot):not(.link-item):not(.link-grid),
+[class*="highlight"],
+[class*="glow"] {
+    display: initial;
+    opacity: initial;
+    animation: initial;
+    background: initial;
+    box-shadow: initial;
+    border: initial;
+    outline: initial;
+    pointer-events: initial;
+}
+
+/* Remove forced behavior for elements */
+* {
+    transition: initial;
+}
+
+/* Remove specifically targeted weather section animations */
+.weather-animation,
+#weatherAnimation,
+.rain-drop, 
+.snow-flake, 
+.sun-ray {
+    display: initial;
+    opacity: initial;
+    pointer-events: initial;
+}
+
+/* Remove cursor-following highlights reset */
+body *, 
+div[style*="position: absolute"],
+div[style*="position:absolute"] {
+    pointer-events: initial;
 } 

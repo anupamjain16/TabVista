@@ -708,8 +708,13 @@ function updateTheme(isDark) {
 const savedTheme = localStorage.getItem('theme');
 if (savedTheme) {
     isDarkTheme = savedTheme === 'dark';
-    updateTheme(isDarkTheme);
+} else {
+    // If no saved theme, default to dark theme
+    isDarkTheme = true;
+    localStorage.setItem('theme', 'dark');
 }
+// Always apply the theme
+updateTheme(isDarkTheme);
 
 // Theme toggle click handler
 themeToggle.addEventListener('click', () => {
@@ -889,4 +894,55 @@ class PomodoroTimer {
 
 // Initialize timers
 const countdownTimer = new CountdownTimer();
-const pomodoroTimer = new PomodoroTimer(); 
+const pomodoroTimer = new PomodoroTimer();
+
+// Fix for debug outlines
+document.addEventListener('DOMContentLoaded', function() {
+    // Remove any debugging outlines
+    const elements = document.querySelectorAll('.link-item, .link-category, .links-section a, .link-grid a');
+    elements.forEach(element => {
+        // Remove any inline styles that might contain debugging outlines or borders
+        if(element.style.outline) element.style.outline = 'none';
+        if(element.style.border) element.style.border = 'none';
+        
+        // Remove the style attribute entirely to ensure no other unwanted styles
+        if(element.getAttribute('style')) {
+            // Only remove outline or border related styles
+            const style = element.getAttribute('style');
+            if(style.includes('outline') || style.includes('border')) {
+                const newStyle = style
+                    .replace(/outline[^;]+;?/g, '')
+                    .replace(/border[^;]+;?/g, '');
+                
+                if(newStyle.trim() === '') {
+                    element.removeAttribute('style');
+                } else {
+                    element.setAttribute('style', newStyle);
+                }
+            }
+        }
+    });
+    
+    // NEW: Remove any unwanted animated elements or debug boxes
+    // Hide weather animation container
+    const weatherAnimation = document.getElementById('weatherAnimation');
+    if (weatherAnimation) {
+        weatherAnimation.style.display = 'none';
+        weatherAnimation.innerHTML = '';
+    }
+    
+    // Remove any unexpected absolute positioned elements
+    const unwantedElements = document.querySelectorAll('div:not(.clock *):not(.hand):not(.center-dot)[style*="position: absolute"], div:not(.clock *):not(.hand):not(.center-dot)[style*="position:absolute"]');
+    unwantedElements.forEach(el => {
+        if (!el.parentElement || !el.parentElement.classList.contains('clock')) {
+            el.style.display = 'none';
+        }
+    });
+    
+    // Disable animations that might be causing issues
+    document.querySelectorAll('[style*="animation"]').forEach(el => {
+        el.style.animation = 'none';
+        el.style.animationName = 'none';
+        el.style.animationDuration = '0s';
+    });
+}); 
