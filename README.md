@@ -91,7 +91,6 @@ TabVista/
 
 The extension requires the following permissions:
 - `geolocation`: For weather functionality
-- `storage`: For saving todos and preferences
 
 ## Development
 

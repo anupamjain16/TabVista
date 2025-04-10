@@ -4,8 +4,7 @@
   "version": "1.0.0",
   "description": "A beautiful and functional new tab page with weather, clock, todo list, and more",
   "permissions": [
-    "geolocation",
-    "storage"
+    "geolocation"
   ],
   "chrome_url_overrides": {
     "newtab": "index.html"
